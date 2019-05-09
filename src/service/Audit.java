@@ -1,13 +1,7 @@
 package service;
 
-import product.Product;
-
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.sql.Timestamp;
-import java.util.List;
 
 public class Audit {
 
@@ -27,11 +21,22 @@ public class Audit {
         BufferedWriter bufferedWriter = new BufferedWriter(fw);
         PrintWriter printWriter = new PrintWriter(bufferedWriter);
 
-
         time=new Timestamp(System.currentTimeMillis());
         printWriter.println(action+","+time);
 
         printWriter.flush();
         printWriter.close();
     }
+    public void printLog(String filePath)  throws IOException {
+        FileReader fileReader = new FileReader(filePath);
+        BufferedReader bufferedReader = new BufferedReader(fileReader);
+        String line;
+        while ((line = bufferedReader.readLine()) != null)
+            {
+                System.out.println(line);
+
+        }
+        bufferedReader.close();
+    }
+
 }
