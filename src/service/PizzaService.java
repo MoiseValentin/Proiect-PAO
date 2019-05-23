@@ -73,7 +73,7 @@ public class PizzaService extends view.Main{
                         }
                     }
                     if (typeOfProduct == 3) {
-                        System.out.println("\t Is pizza vegetarian? ");
+                        System.out.println("\t Is pizza vegetarian? (true/false)");
                         Product p = new Pizza(nameOfProduct, priceOfProduct, this.s.nextBoolean());
                         if (this.db.contains(p)) {
                             System.out.println("product already in database");
